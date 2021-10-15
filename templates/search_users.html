@@ -1,0 +1,55 @@
+{% extends '_base.html' %}
+
+{% import '_components.html' as components %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row vh-100">
+        {{ components.sidebar() }}
+        <div class="container p-0">
+            {{ components.header('Users Management') }}
+            <h2 class="font-40 py-4">Search Result ...</h2>
+            <div class="result-boxes d-flex justify-content-between">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Juan Perez</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Admin</h6>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Sharon Hernandez</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Super Admin</h6>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="result-boxes pt-4 d-flex justify-content-between">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Jhon Wick</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Admin</h6>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Clark Kent</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">User</h6>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="result-boxes pt-4 d-flex justify-content-between">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Lana Lang</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">User</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

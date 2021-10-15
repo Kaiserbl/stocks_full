@@ -1,48 +1,52 @@
 {% extends '_base.html' %}
+
+{% import '_components.html' as components %}
+
 {% block content %}
-<div class="container">
-    <h1 class="titulo">User management</h1>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="d-flex justify-content-center m-0">
-        <form>
-            <label>
-                NAME
-            </label>
-            <br>
-            <input size="46.7" type="text" placeholder="User name" id="name1" name="name1">
-            <br>
-            <label id="idname"></label> 
-            <br>
-            <label>
-                EMAIL
-            </label>
-            <br>
-            <input size="46.7" type="email" placeholder="User email" id="email1" name="email1">
-            <br>
-            <label id="idemail"></label>
-            <br>
-            <label>
-                ROL
-            </label>
-            <br>
-            <select style="width: 383px">
-                <option>Select rol</option>
-                <option>Superadministrator</option>
-                <option>Administrator</option>
-                <option>Final user</option>
-            </select>
-            <br>
-            <br>
-            <div class="d-grid gap-2 col-12">
-                <button class="btn btn-primary" onclick="validacion()" type="button">Create new user</button> 
-            </div> 
-            <br>
-        </form>
+<div class="container-fluid">
+    <div class="row vh-100">
+        {{ components.sidebar() }}
+        <div class="container p-0">
+            {{ components.header('Users Management') }}
+            <div class="d-flex justify-content-center m-0">
+                <form class="pt-140px">
+                    <label>
+                        NAME
+                    </label>
+                    <br>
+                    <input size="46.7" type="text" placeholder="User name" id="name1" name="name1">
+                    <br>
+                    <label id="idname"></label> 
+                    <br>
+                    <label>
+                        EMAIL
+                    </label>
+                    <br>
+                    <input size="46.7" type="email" placeholder="User email" id="email1" name="email1">
+                    <br>
+                    <label id="idemail"></label>
+                    <br>
+                    <label>
+                        ROL
+                    </label>
+                    <br>
+                    <select style="width: 400px">
+                        <option>Select rol</option>
+                        <option>Superadministrator</option>
+                        <option>Administrator</option>
+                        <option>Final user</option>
+                    </select>
+                    <br>
+                    <br>
+                    <div class="d-grid gap-2 col-12">
+                        <button class="btn btn-primary" onclick="validacion()" type="button">Create new user</button> 
+                    </div> 
+                    <br>
+                </form>
+            </div>
+            
+        </div>
     </div>
-    
 </div>
+
 {% endblock %}

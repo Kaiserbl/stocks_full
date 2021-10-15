@@ -8,6 +8,18 @@ body {
     max-width: 1040px !important;
 }
 
+.card {
+    width: 480px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 2px 6px 0 rgb(0 0 0 / 5%);
+    border-radius: 15px !important;
+}
+
+.icon-user {
+    width: 30px;
+    height: 30px;
+}
+
 .usercard{  
     width: 250px;    
     border: 1px solid #EAEAEA;
@@ -70,32 +82,6 @@ body {
     margin-left: 3px !important;
 }
 
-.font-8{font-size: 8px !important;}
-.font-9{font-size: 9px !important;}
-.font-10{font-size: 10px !important;}
-.font-11{font-size: 11px !important;}
-.font-12{font-size: 12px !important;}
-.font-13{font-size: 13px !important;}
-.font-14{font-size: 14px !important;}
-.font-15{font-size: 15px !important;}
-.font-16{font-size: 16px !important;}
-.font-17{font-size: 17px !important;}
-.font-18{font-size: 18px !important;}
-.font-19{font-size: 19px !important;}
-.font-20{font-size: 20px !important;}
-.font-21{font-size: 21px !important;}
-.font-22{font-size: 22px !important;}
-.font-23{font-size: 23px !important;}
-.font-24{font-size: 24px !important;}
-.font-25{font-size: 25px !important;}
-.font-26{font-size: 26px !important;}
-.font-27{font-size: 27px !important;}
-.font-28{font-size: 28px !important;}
-.font-29{font-size: 29px !important;}
-.font-30{font-size: 30px !important;}
-.font-32{font-size: 32px !important;}
-.font-40{font-size: 40px !important;}
-
 .titulo{
     margin-left:200px
 }
@@ -103,15 +89,18 @@ body {
 #imagen{
     text-align: center;
 }
+
 #notienes{
     text-align: center;
     letter-spacing: 0.3px;
     color: #9FA2B4;
 }
+
 #cuadroform{
     border-radius: 10px;
     padding: 15px;
 }
+
 #crearcuenta{
     top: calc(50% - 20px/2);
     text-align: center;
@@ -119,10 +108,12 @@ body {
     color: #3751FF;
 
 }
+
 .formulario{
     background-color: white;
     padding: 15px;
 }
+
 #divboton{
     align-items: center;
     justify-content: center;
@@ -139,6 +130,7 @@ body {
     box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
     border-radius: 8px;
 }
+
 #inputboton{
     font-weight: 600;
     font-size: 14px;
@@ -147,6 +139,7 @@ body {
     letter-spacing: 0.2px;
     color: #FFFFFF;
 }
+
 #emailt{
     font-size: 12px;
     line-height: 15px;
@@ -155,6 +148,7 @@ body {
     color: #9FA2B4;
 
 }
+
 h4{
     font-size: 14px;
     line-height: 20px;
@@ -189,3 +183,33 @@ h4{
     padding-right: 80px;
 }
 
+.pt-140px {
+    padding-top: 140px !important;
+}
+
+
+.font-8{font-size: 8px !important;}
+.font-9{font-size: 9px !important;}
+.font-10{font-size: 10px !important;}
+.font-11{font-size: 11px !important;}
+.font-12{font-size: 12px !important;}
+.font-13{font-size: 13px !important;}
+.font-14{font-size: 14px !important;}
+.font-15{font-size: 15px !important;}
+.font-16{font-size: 16px !important;}
+.font-17{font-size: 17px !important;}
+.font-18{font-size: 18px !important;}
+.font-19{font-size: 19px !important;}
+.font-20{font-size: 20px !important;}
+.font-21{font-size: 21px !important;}
+.font-22{font-size: 22px !important;}
+.font-23{font-size: 23px !important;}
+.font-24{font-size: 24px !important;}
+.font-25{font-size: 25px !important;}
+.font-26{font-size: 26px !important;}
+.font-27{font-size: 27px !important;}
+.font-28{font-size: 28px !important;}
+.font-29{font-size: 29px !important;}
+.font-30{font-size: 30px !important;}
+.font-32{font-size: 32px !important;}
+.font-40{font-size: 40px !important;}
