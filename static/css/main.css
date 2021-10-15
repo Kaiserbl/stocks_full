@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F7F8FC !important;
+}
+
+.container {
+    max-width: 1040px !important;
+}
+
+.usercard{  
+    width: 250px;    
+    border: 1px solid #EAEAEA;
+    box-shadow: 0 2px 6px 0 rgb(0 0 0 / 5%);
+    border-radius: 10px !important;
+}
+
+.boton{
+    height: 40px;
+    width: 160px;
+    border-radius: 8px  !important;
+    border-style: solid !important;
+    border-color: white !important;
+}
+
+#boton2{
+    background-color:#ff4646 !important;
+    border-style: solid !important;
+    border-color: white !important;
+}
+
+.labelpeque{
+    color:#9FA2B4;
+}
+
+.textarea{
+    font-size: 15px;
+    margin-left: 300px;
+    border-color: white;
+}
+
+.texto{
+    height: 20px;
+    width: 100px;
+    font-size: 15px;
+    margin-left: 300px;
+    border-color: white;
+    border-style: solid;
+}
+
+#textonormal{
+    margin-left: 0px;
+    height: 20px;
+    width: 250px;
+    font-size: 15px;
+    border-color: white;
+    border-style: solid;
+}
+
+#mover{
+    margin-left: 300px;
+
+}
+
+.confirm{
+    margin-top: 15px !important;
+    text-align: center !important; 
+    font-weight: bold   !important;
+}
+
+.casa{
+    border: none !important; 
+}
+
+.borde{
+    border-radius: 20px !important;
+    width: 330px !important;
+    height: 180px !important;
+    font-size: 25px !important;   
+    margin-left: 25% !important;
+}
+
+.botonventana{
+    height: 40px !important;
+    width:  90px !important;
+    color: red !important;
+    background-color: white !important;
+    border-style: solid !important;
+    border-color: white !important;
+    margin-left: 100px !important;
+    margin-top: -35px !important;
+}
+
+#peque{
+    margin-top: -10px !important;
+    height: 200px !important;
+    margin-left: 15px !important;
+}
+
+#botoncancel{
+    color:black !important;
+    margin-left: 3px !important;
+}
+
+.textoprovider{
+    height: 20px;
+    width: 300px;
+    font-size: 15px;
+    margin-left: 300px;
+    border-color: white;
+    border-style: solid;
+}
+
+.font-8{font-size: 8px !important;}
+.font-9{font-size: 9px !important;}
+.font-10{font-size: 10px !important;}
+.font-11{font-size: 11px !important;}
+.font-12{font-size: 12px !important;}
+.font-13{font-size: 13px !important;}
+.font-14{font-size: 14px !important;}
+.font-15{font-size: 15px !important;}
+.font-16{font-size: 16px !important;}
+.font-17{font-size: 17px !important;}
+.font-18{font-size: 18px !important;}
+.font-19{font-size: 19px !important;}
+.font-20{font-size: 20px !important;}
+.font-21{font-size: 21px !important;}
+.font-22{font-size: 22px !important;}
+.font-23{font-size: 23px !important;}
+.font-24{font-size: 24px !important;}
+.font-25{font-size: 25px !important;}
+.font-26{font-size: 26px !important;}
+.font-27{font-size: 27px !important;}
+.font-28{font-size: 28px !important;}
+.font-29{font-size: 29px !important;}
+.font-30{font-size: 30px !important;}
+.font-32{font-size: 32px !important;}
+.font-40{font-size: 40px !important;}
