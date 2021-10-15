@@ -26,13 +26,7 @@
 {% macro sidebar() -%}
     <div class="col-2 bg-dark align-items-stretch pt-3 px-2" >
         <!-- Brand name -->
-        <a class="nav-link text-danger p-0" href="/">
-            <div class="d-flex text-light align-items-center pb-4">
-                <i class="fa fa-cubes fa-fw text-primary px-3" aria-hidden="true"></i>
-                <p class="px-3 m-0 fs-3 ">Stocks</p>
-            </div>
-        </a>
-
+        {{ brand() }}
         <ul class="nav nav-pills flex-column">
             <!-- Resume -->
             {{ navItem('Resumen', 'fa-pie-chart', 'resumes') }}
@@ -56,4 +50,23 @@
         </ul>
 
     </div>
+{%- endmacro %}
+
+<!-- Brand name -->
+{% macro brand(isDark = True) -%}
+    {% if isDark %}
+        <a class="nav-link text-danger p-0" href="/">
+            <div class="d-flex text-light justify-content-center align-items-center pb-4">
+                <i class="fa fa-cubes fa-fw text-primary px-3" aria-hidden="true"></i>
+                <p class="px-3 m-0 fs-3 ">Stocks</p>
+            </div>
+        </a>
+    {% else %}
+        <a class="nav-link text-danger p-0" href="/">
+            <div class="d-flex text-dark justify-content-center align-items-center pb-4">
+                <i class="fa fa-cubes fa-fw text-primary px-3" aria-hidden="true"></i>
+                <p class="px-3 m-0 fs-3 ">Stocks</p>
+            </div>
+        </a>
+    {% endif %}
 {%- endmacro %}
