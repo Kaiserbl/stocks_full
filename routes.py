@@ -32,3 +32,9 @@ def setRoutes(app):
     @app.route('/user/new')
     def createuser():
         return render_template('user.html')
+    
+    @app.route('/login')
+    def login():
+        return render_template('login.html')
+    
+    
