@@ -1,0 +1,51 @@
+{% extends '_base.html' %}
+{% block content %}
+<div class="container"> 
+    <h1 class="titulo">Providers</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="d-flex justify-content-center m-0">       
+        <form>
+            <label>
+                NAME
+            </label>
+            <br>
+            <input size="46.7" type="text" placeholder="Provider's name" id="name3" name="name3">
+            <br>
+            <label id="idname3"></label>
+            <br>
+            <label>
+                PRODUCT
+            </label>
+            <br>
+            <input size="46.7" type="text" placeholder="Product Provided" id="producto" name="producto">
+            <br>
+            <label id="idproducto"></label>
+            <br>
+            <label>
+                EMAIL
+            </label>
+            <br>
+            <input size="46.7" type="email" placeholder="Provider's Email" id="email3" name="email3">
+            <br>
+            <label id="idemail3"></label>
+            <br>
+            <label>
+                CONTACT NUMBER
+            </label>
+            <br>
+            <input size="46.7" type="text" placeholder="Provider's Number" id="numero" name="numero">
+            <br>
+            <label id="idnumero"></label>
+            <br>
+            <br>
+            <div class="d-grid gap-2 col-12">
+                <button onclick="validacionpro()" class="btn btn-primary" type="button">Create new provider</button> 
+            </div>
+        </form>
+    </div> 
+</div>
+{% endblock %}
+

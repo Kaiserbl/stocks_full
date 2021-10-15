@@ -7,7 +7,15 @@ def setRoutes(app):
 
     @app.route("/products")
     def editProduct():
-        return render_template('product_edit.html')
+        return render_template('product_edit.html', name='Muscle car model 7')
+
+    @app.route("/users")
+    def editUser():
+        return render_template('user_edit.html', name='Sharon Hernandez')
+
+    @app.route("/providers")
+    def editProvider():
+        return render_template('provider_edit.html', name='Santorini')
 
     @app.errorhandler(404)
     def error_404_handler(e):
@@ -24,3 +32,37 @@ def setRoutes(app):
     @app.route("/providers/search")
     def searchProviders():
         return render_template('search_providers.html')
+    
+    @app.route('/product/detail')
+    def home():
+        return render_template('product_detail.html')
+    
+    @app.route('/provider/detail')
+    def productos():
+        return render_template('provider_detail.html')
+
+    @app.route('/user/detail')
+    def servicios():
+        return render_template('user_detail.html')
+    
+    @app.route('/provider/new')
+    def createprovider():
+        return render_template('provider.html')
+    
+    @app.route('/product/new')
+    def createproduct():
+        return render_template('product.html')
+    
+    @app.route('/user/new')
+    def createuser():
+        return render_template('user.html')
+    
+    @app.route('/login')
+    def login():
+        return render_template('login.html')
+    
+    @app.route('/dashboard')
+    def dashboard():
+        return render_template('dashboard.html')
+    
+    

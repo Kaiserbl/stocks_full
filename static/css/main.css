@@ -20,6 +20,170 @@ body {
     height: 30px;
 }
 
+.usercard{  
+    width: 250px;    
+    border: 1px solid #EAEAEA;
+    box-shadow: 0 2px 6px 0 rgb(0 0 0 / 5%);
+    border-radius: 10px !important;
+}
+
+.boton{
+    height: 40px;
+    width: 160px;
+    border-radius: 8px  !important;
+    border-style: solid !important;
+    border-color: white !important;
+}
+
+#boton2{
+    background-color:#ff4646 !important;
+    border-style: solid !important;
+    border-color: white !important;
+}
+
+.labelpeque{
+    color:#9FA2B4;
+}
+
+#peque{
+    margin-top: -10px !important;
+    height: 200px !important;
+    margin-left: 15px !important;
+}
+
+.borde{
+    border-radius: 20px !important;
+    width: 330px !important;
+    height: 180px !important;
+    font-size: 25px !important;   
+    margin-left: 25% !important;
+
+}
+
+.confirm{
+    margin-top: 15px !important;
+    text-align: center !important; 
+    font-weight: bold   !important;
+}
+
+.botonventana{
+    height: 40px !important;
+    width:  90px !important;
+    color: red !important;
+    background-color: white !important;
+    border-style: solid !important;
+    border-color: white !important;
+    margin-left: 100px !important;
+    margin-top: -35px !important;
+}
+
+#botoncancel{
+    color:black !important;
+    margin-left: 3px !important;
+}
+
+.titulo{
+    margin-left:200px
+}
+
+#imagen{
+    text-align: center;
+}
+
+#notienes{
+    text-align: center;
+    letter-spacing: 0.3px;
+    color: #9FA2B4;
+}
+
+#cuadroform{
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#crearcuenta{
+    top: calc(50% - 20px/2);
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #3751FF;
+
+}
+
+.formulario{
+    background-color: white;
+    padding: 15px;
+}
+
+#divboton{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    height: 48px;
+    left: 32px;
+    right: 32px;
+    top: 418px;
+
+    /* accent / default */
+    background: #3751FF;
+    /* button / accent default */
+    box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
+    border-radius: 8px;
+}
+
+#inputboton{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #FFFFFF;
+}
+
+#emailt{
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: #9FA2B4;
+
+}
+
+h4{
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    color: #9FA2B4;
+}
+
+#botones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px ;
+}
+
+
+#Products{
+    margin: 25px;
+    margin-left: 25px;
+    border-color: rgb(223, 193, 193);
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+#Providers{
+    margin: 25px;
+    margin-left: 25px;
+    border-color: rgb(223, 193, 193);
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+
 .font-8{font-size: 8px !important;}
 .font-9{font-size: 9px !important;}
 .font-10{font-size: 10px !important;}
@@ -45,4 +209,3 @@ body {
 .font-30{font-size: 30px !important;}
 .font-32{font-size: 32px !important;}
 .font-40{font-size: 40px !important;}
-

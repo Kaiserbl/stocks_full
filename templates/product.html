@@ -1,0 +1,42 @@
+{% extends '_base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="titulo">Products</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="d-flex justify-content-center m-0">
+        <form>
+            <label>
+                NAME
+            </label>
+            <br>
+            <input size="46.7" type="text" placeholder="Product name" id="name2" name="name2">
+            <br>
+            <label id="idname2"></label> 
+            <br>
+            <label>
+                DESCRIPTION
+            </label>
+            <br>
+            <input size="46.7" type="text" placeholder="Product description">
+            <br>
+            <br>
+            <label>
+                MINIMUM STOCK
+            </label>
+            <br>
+            <input size="46.7" type="text" placeholder="Mininum stock" id="minimo" name="minimo">
+            <br>
+            <label id="idminimo"></label> 
+            <br>
+            <div class="d-grid gap-2 col-12">
+                <button onclick="validacionmin()" class="btn btn-primary" type="button">Create new product</button> 
+            </div>            
+            <br>
+        </form>
+    </div>
+</div>
+{% endblock %}
