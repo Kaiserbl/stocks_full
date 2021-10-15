@@ -44,3 +44,13 @@ def setRoutes(app):
     @app.route('/user/new')
     def createuser():
         return render_template('user.html')
+    
+    @app.route('/login')
+    def login():
+        return render_template('login.html')
+    
+    @app.route('/dashboard')
+    def dashboard():
+        return render_template('dashboard.html')
+    
+    
