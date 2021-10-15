@@ -10,7 +10,7 @@
             <!-- Tab -->
             <div class="col-10">
                 <!-- Title bar -->
-
+                
                 <!-- Tab content -->
                 <form action="" method="post" class="p-3">
                     <div class="d-flex align-items-center">
@@ -19,23 +19,14 @@
                     </div>
                     <!-- Name -->
                     {{ components.formField('form-name', 'nombre') }}
-                    <!-- Description -->
+                    <!-- Email -->
+                    {{ components.formField('form-email', 'email') }}
+                    <!-- Phone number -->
+                    {{ components.formField('form-phone-number', 'número de contacto') }}
+                    <!-- Products -->
                     <div class="row mb-3">
                         <p class="text-muted text-uppercase small fw-bold my-2"><small>
-                            descripción
-                        </small></p>
-                        <div class="col-12">
-                            <textarea class="form-control" id="form-decription" rows="4"></textarea>
-                        </div>
-                    </div>
-                    <!-- Minimun stock -->
-                    {{ components.formField('form-minimun-stock', 'stock mínimo') }}
-                    <!-- Current stock -->
-                    {{ components.formField('form-current-stock', 'stock actual') }}
-                    <!-- Providers -->
-                    <div class="row mb-3">
-                        <p class="text-muted text-uppercase small fw-bold my-2"><small>
-                            proveedores
+                            productos
                         </small></p>
                         <!-- Provider 1 -->
                         <div class="row mb-3">
@@ -43,7 +34,7 @@
                                 <input type="text" class="form-control" id="form-provider1">
                             </div>
                             <div class="d-grid gap-2 col-12 col-md-4 align-items-center">
-                                <button class="btn btn-danger btn-sm" type="button">Eliminar proveedor</button>
+                                <button class="btn btn-danger btn-sm" type="button">Eliminar producto</button>
                             </div>
                         </div>
                         <!-- Provider 2 -->
@@ -52,12 +43,12 @@
                                 <input type="text" class="form-control" id="form-provider2">
                             </div>
                             <div class="d-grid gap-2 col-12 col-md-4 align-items-center">
-                                <button class="btn btn-danger btn-sm" type="button">Eliminar proveedor</button>
+                                <button class="btn btn-danger btn-sm" type="button">Eliminar producto</button>
                             </div>
                         </div>
                         <!-- Add provider -->
                         <div class="d-grid gap-2 col-12 col-md-6">
-                            <button class="btn btn-primary btn-sm" type="button">Agregar proveedor</button>
+                            <button class="btn btn-primary btn-sm" type="button">Agregar producto</button>
                         </div>
                     </div>
                 </form>
