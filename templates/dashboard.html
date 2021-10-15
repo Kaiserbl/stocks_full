@@ -1,17 +1,28 @@
 {% extends "_base.html" %}
+
+{% import '_components.html' as components %}
+
 {% block content %}
-<h1 class="titulo">Resume</h1>
-<div class="d-flex">
-    <form>
-         <div id="botones" class="container">
-            <button id="Products" class="btn btn-lg" style="background-color: white;">
-                <p style="color: gray;">Products</p> <h1>154</h1>
-            </button>
-            <button id="Providers" class="btn btn-lg" style="background-color: white;">
-                <p style="color: gray;">Providers</p> <h1>34</h1>
-            </button>
-         </div>       
-    </form>
+<div class="container-fluid">
+    <div class="row vh-100">
+        {{ components.sidebar() }}
+        <div class="container p-0">
+            {{ components.header('Resume') }}
+            <div class="d-flex">
+                <form>
+                     <div id="botones" class="container">
+                        <button id="Products" class="btn btn-lg" style="background-color: white;">
+                            <p style="color: gray;">Products</p> <h1>154</h1>
+                        </button>
+                        <button id="Providers" class="btn btn-lg" style="background-color: white;">
+                            <p style="color: gray;">Providers</p> <h1>34</h1>
+                        </button>
+                     </div>       
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}

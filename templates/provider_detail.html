@@ -1,29 +1,39 @@
 {% extends '_base.html' %}
+
+{% import '_components.html' as components %}
+
 {% block content %}
-<div class="container">
-  <div class="d-flex justify-content-between pt-4">
-    <h3>Santorini</h3>
-    <div>
-      <button type="button" class="btn btn-primary boton">Edit Provider</button>
-      <button type="button" class="btn btn-primary boton" id="boton2" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Provider</button>    
+<div class="container-fluid">
+  <div class="row vh-100">
+    {{ components.sidebar() }}
+    <div class="container p-0">
+      {{ components.header('Providers') }}
+      <div class="d-flex justify-content-between pt-4">
+        <h3>Santorini</h3>
+        <div>
+          <button type="button" class="btn btn-primary boton">Edit Provider</button>
+          <button type="button" class="btn btn-primary boton" id="boton2" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Provider</button>    
+        </div>
+      </div>
+      <div class="pt-4 mt-4">
+        <h6 class="font-14 labelpeque">Products</h6>
+        <ul>
+          <li class="font-12">Muscle Car Model 78</li>
+          <li class="font-12">Sport Car Model 1</li>
+        </ul>
+      </div>
+      <div class="pt-4 mt-4">
+        <h6 class="font-14 labelpeque">EMAIL</h6>
+        <P class="font-12">Santorini@gmai.com</P>
+      </div>
+      <div class="pt-4 mt-4">
+        <h6 class="font-14 labelpeque">CONTACT NUMBER</h6>
+        <P class="font-12">3069853547</P>
+      </div>
     </div>
   </div>
-  <div class="pt-4 mt-4">
-    <h6 class="font-14 labelpeque">Products</h6>
-    <ul>
-      <li class="font-12">Muscle Car Model 78</li>
-      <li class="font-12">Sport Car Model 1</li>
-    </ul>
-  </div>
-  <div class="pt-4 mt-4">
-    <h6 class="font-14 labelpeque">EMAIL</h6>
-    <P class="font-12">Santorini@gmai.com</P>
-  </div>
-  <div class="pt-4 mt-4">
-    <h6 class="font-14 labelpeque">CONTACT NUMBER</h6>
-    <P class="font-12">3069853547</P>
-  </div>
 </div>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content borde">

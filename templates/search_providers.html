@@ -1,50 +1,60 @@
-{% extends "navbar.html" %}
+{% extends '_base.html' %}
+
+{% import '_components.html' as components %}
+
 {% block content %}
-<div class="container">
-    <h2 class="font-40 py-4">Search Result ...</h2>
-    <div class="result-boxes d-flex justify-content-between">
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Santorini</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Muscle car model 77...</h6>
+<div class="container-fluid">
+    <div class="row vh-100">
+        {{ components.sidebar() }}
+        <div class="container p-0">
+            {{ components.header('Providers') }}
+            <h2 class="font-40 py-4">Search Result ...</h2>
+            <div class="result-boxes d-flex justify-content-between">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Santorini</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Muscle car model 77...</h6>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">SIA Automotors</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Pick up 2500...</h6>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">SIA Automotors</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Pick up 2500...</h6>
+        
+            <div class="result-boxes pt-4 d-flex justify-content-between">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Pantoja</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Muscle car model 90...</h6>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Fermin Autos</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Mini van...</h6>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="result-boxes pt-4 d-flex justify-content-between">
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Pantoja</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Muscle car model 90...</h6>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Fermin Autos</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Mini van...</h6>
-            </div>
-        </div>
-    </div>
-
-    <div class="result-boxes pt-4 d-flex justify-content-between">
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Hermanos Hernandez</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Pick up monster...</h6>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Cali motors</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Sport car model 1...</h6>
+        
+            <div class="result-boxes pt-4 d-flex justify-content-between">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Hermanos Hernandez</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Pick up monster...</h6>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Cali motors</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Sport car model 1...</h6>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 {% endblock %}

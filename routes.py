@@ -23,7 +23,7 @@ def setRoutes(app):
 
     @app.route("/products/search")
     def searchProduct():
-        return render_template('search_products.html')
+        return render_template('search_products.html', namePage="Products")
 
     @app.route("/users/search")
     def searchUsers():

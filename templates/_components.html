@@ -52,6 +52,19 @@
     </div>
 {%- endmacro %}
 
+<!-- Header -->
+{% macro header(namePage) -%}
+    <header>
+        <div class="d-flex justify-content-between pt-4">
+            <h2 class="font-22">{{namePage}}</h2>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+{%- endmacro %}
+
 <!-- Brand name -->
 {% macro brand(isDark = True) -%}
     {% if isDark %}

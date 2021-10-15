@@ -8,11 +8,12 @@
             <!-- Sidebar -->
             {{ components.sidebar() }}
             <!-- Tab -->
-            <div class="col-10">
+            <div class="container p-0">
+                {{ components.header('Providers') }}
                 <!-- Title bar -->
                 
                 <!-- Tab content -->
-                <form action="" method="post" class="p-3">
+                <form action="" method="post" class="py-3">
                     <div class="d-flex align-items-center">
                         <h2 class="title flex-fill">{{ name }}</h2>
                         <button type="submit" class="btn btn-primary ">Guardar cambios</button>
