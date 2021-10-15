@@ -33,43 +33,10 @@ body {
     color:#9FA2B4;
 }
 
-.textarea{
-    font-size: 15px;
-    margin-left: 300px;
-    border-color: white;
-}
-
-.texto{
-    height: 20px;
-    width: 100px;
-    font-size: 15px;
-    margin-left: 300px;
-    border-color: white;
-    border-style: solid;
-}
-
-#textonormal{
-    margin-left: 0px;
-    height: 20px;
-    width: 250px;
-    font-size: 15px;
-    border-color: white;
-    border-style: solid;
-}
-
-#mover{
-    margin-left: 300px;
-
-}
-
-.confirm{
-    margin-top: 15px !important;
-    text-align: center !important; 
-    font-weight: bold   !important;
-}
-
-.casa{
-    border: none !important; 
+#peque{
+    margin-top: -10px !important;
+    height: 200px !important;
+    margin-left: 15px !important;
 }
 
 .borde{
@@ -78,6 +45,13 @@ body {
     height: 180px !important;
     font-size: 25px !important;   
     margin-left: 25% !important;
+
+}
+
+.confirm{
+    margin-top: 15px !important;
+    text-align: center !important; 
+    font-weight: bold   !important;
 }
 
 .botonventana{
@@ -91,24 +65,9 @@ body {
     margin-top: -35px !important;
 }
 
-#peque{
-    margin-top: -10px !important;
-    height: 200px !important;
-    margin-left: 15px !important;
-}
-
 #botoncancel{
     color:black !important;
     margin-left: 3px !important;
-}
-
-.textoprovider{
-    height: 20px;
-    width: 300px;
-    font-size: 15px;
-    margin-left: 300px;
-    border-color: white;
-    border-style: solid;
 }
 
 .font-8{font-size: 8px !important;}
