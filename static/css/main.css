@@ -68,3 +68,30 @@ h4{
     letter-spacing: 0.3px;
     color: #9FA2B4;
 }
+
+#botones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px ;
+}
+
+
+#Products{
+    margin: 25px;
+    margin-left: 25px;
+    border-color: rgb(223, 193, 193);
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+#Providers{
+    margin: 25px;
+    margin-left: 25px;
+    border-color: rgb(223, 193, 193);
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
