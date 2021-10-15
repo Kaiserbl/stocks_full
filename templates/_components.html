@@ -9,3 +9,51 @@
         </div>
     </div>
 {%- endmacro %}
+
+<!-- Navbar item -->
+{% macro navItem(label, faCode, href) -%}
+    <li class="nav-item pb-3">
+        <a class="nav-link text-light" href="{{ href }}">
+            <div class="d-flex align-items-center">
+                <i class="fa {{ faCode }} fa-fw"></i>
+                <p class="px-3 m-0">{{ label }}</p>
+            </div>
+        </a>
+    </li>
+{%- endmacro %}
+
+<!-- Sidebar -->
+{% macro sidebar() -%}
+    <div class="col-2 bg-dark align-items-stretch pt-3 px-2" >
+        <!-- Brand name -->
+        <a class="nav-link text-danger p-0" href="/">
+            <div class="d-flex text-light align-items-center pb-4">
+                <i class="fa fa-cubes fa-fw text-primary px-3" aria-hidden="true"></i>
+                <p class="px-3 m-0 fs-3 ">Stocks</p>
+            </div>
+        </a>
+
+        <ul class="nav nav-pills flex-column">
+            <!-- Resume -->
+            {{ navItem('Resumen', 'fa-pie-chart', 'resumes') }}
+            <!-- Products -->
+            {{ navItem('Productos', 'fa-automobile', 'products') }}
+            <!-- Providers -->
+            {{ navItem('Proveedores', 'fa-building', 'providers') }}
+            <!-- Users management -->
+            {{ navItem('Gestión de usuarios', 'fa-users', 'users') }}
+            <!-- My profile -->
+            {{ navItem('Mi perfil', 'fa-user-circle', 'my-profile') }}
+            <!-- Sign out -->
+            <li class="nav-item pb-2">
+                <a class="nav-link text-danger" href="#">
+                <div class="d-flex align-items-center">
+                    <i class="fa fa-sign-out fa-fw"></i>
+                    <p class="px-3 m-0">Cerrar sesión</p>
+                </div>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+{%- endmacro %}
