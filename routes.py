@@ -1,9 +1,11 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 
 from auth.forms import LoginForm
 from auth.models import get_user
+
+import sqlite3
 
 def setRoutes(app):
     @app.route("/")
@@ -34,47 +36,132 @@ def setRoutes(app):
     @app.route("/products/search")
     @login_required
     def searchProduct():
-        return render_template('search_products.html', namePage="Products")
+        con = sqlite3.connect("stocks.db")  
+        con.row_factory = sqlite3.Row  
+        cur = con.cursor()  
+        cur.execute("select * from products")  
+        products = cur.fetchall()
+        return render_template('search_products.html', products=products, namePage="Products")
 
     @app.route("/users/search")
     @login_required
     def searchUsers():
-        return render_template('search_users.html')
+        con = sqlite3.connect("stocks.db")  
+        con.row_factory = sqlite3.Row  
+        cur = con.cursor()  
+        cur.execute("select * from users")  
+        users = cur.fetchall()
+        return render_template('search_users.html', users=users)
     
     @app.route("/providers/search")
     @login_required
     def searchProviders():
-        return render_template('search_providers.html')
+        con = sqlite3.connect("stocks.db")  
+        con.row_factory = sqlite3.Row  
+        cur = con.cursor()  
+        cur.execute("select * from providers")  
+        providers = cur.fetchall()
+        return render_template('search_providers.html', providers=providers)
     
     @app.route('/product/detail')
     @login_required
-    def home():
+    def productDetails():
         return render_template('product_detail.html')
     
     @app.route('/provider/detail')
     @login_required
-    def productos():
+    def providerDetails():
         return render_template('provider_detail.html')
 
     @app.route('/user/detail')
     @login_required
-    def servicios():
+    def userDetails():
         return render_template('user_detail.html')
     
     @app.route('/provider/new')
     @login_required
     def createprovider():
         return render_template('provider.html')
+
+    @app.route('/savedprovider', methods=["GET", "POST"])
+    def savedProvider():
+        msg = ""  
+        if request.method == "POST":  
+            with sqlite3.connect("stocks.db") as con: 
+                try:  
+                    name = request.form["NameProvider"]
+                    product = request.form["Product"]
+                    email = request.form["EmailProvider"]
+                    contactNumber = request.form["ContactNumber"]
+                    cur = con.cursor()  
+                    cur.execute("INSERT INTO providers (name, product, email, contact_number) VALUES (?,?,?,?)",(name, product, email, contactNumber))  
+                    con.commit()  
+                except:  
+                    con.rollback()   
+                    msg = "We can not add the provider"  
+                    flash(msg)
+                finally:  
+                    msg = "Provider successfully Added"  
+                    flash(msg)
+                    return redirect("providers/search", code = 302)  
+                    con.close()  
     
     @app.route('/product/new')
     @login_required
     def createproduct():
         return render_template('product.html')
     
+    @app.route('/savedproduct', methods=["GET", "POST"])
+    def savedProduct():
+        message = ""  
+        if request.method == "POST":  
+            with sqlite3.connect("stocks.db") as con: 
+                try:  
+                    name = request.form["Name"]
+                    description = request.form["Description"]
+                    cminima = int(request.form["MininumStock"])
+                    current = int(request.form["CurrentStock"])
+                    cur = con.cursor()  
+                    cur.execute("INSERT INTO products (name, description, minimum_stock, current_stock) VALUES (?,?,?,?)",(name, description, cminima, current))  
+                    con.commit()  
+                except:  
+                    con.rollback()   
+                    message = "We can not add the product" 
+                    flash(message) 
+                finally:  
+                    message = "Product successfully Added" 
+                    flash(message)
+                    return redirect("products/search", code = 302)  
+                    con.close()  
+    
     @app.route('/user/new')
     @login_required
     def createuser():
         return render_template('user.html')
+    
+    @app.route('/saveduser', methods=["GET", "POST"])
+    def savedUser():
+        msg = ""  
+        if request.method == "POST":  
+            with sqlite3.connect("stocks.db") as con: 
+                try:  
+                    firstName = request.form["FirstName"]
+                    lastName = request.form["LastName"]
+                    email = request.form["UserEmail"]
+                    password = request.form["Password"]
+                    role = request.form["Role"]
+                    cur = con.cursor()  
+                    cur.execute("INSERT INTO users (first_name, last_name, email, password, role) VALUES (?,?,?,?, ?)",(firstName, lastName, email, password, role))  
+                    con.commit()    
+                except:  
+                    con.rollback()   
+                    msg = "We can not add the user"
+                    flash(msg)  
+                finally:  
+                    msg = "User successfully Added"
+                    flash(msg)
+                    return redirect("users/search", code = 302)
+                    con.close() 
     
     @app.route('/login', methods=["GET", "POST"])
     def login():

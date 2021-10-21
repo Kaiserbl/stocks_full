@@ -9,28 +9,44 @@
         <div class="container p-0">
             {{ components.header('Users Management') }}
             <div class="d-flex justify-content-center m-0">
-                <form class="pt-140px">
+                <form action="/saveduser" method="post"class="pt-140px">
                     <label>
-                        NAME
+                        FIRST NAME
                     </label>
                     <br>
-                    <input size="46.7" type="text" placeholder="User name" id="name1" name="name1">
+                    <input size="46.7" type="text" placeholder="First name" id="firstname" name="FirstName">
                     <br>
                     <label id="idname"></label> 
+                    <br>
+                    <label>
+                        LAST NAME
+                    </label>
+                    <br>
+                    <input size="46.7" type="text" placeholder="Last name" id="lastname" name="LastName">
+                    <br>
+                    <label id="idlastname"></label> 
                     <br>
                     <label>
                         EMAIL
                     </label>
                     <br>
-                    <input size="46.7" type="email" placeholder="User email" id="email1" name="email1">
+                    <input size="46.7" type="email" placeholder="User email" id="email1" name="UserEmail">
                     <br>
                     <label id="idemail"></label>
+                    <br>
+                    <label>
+                        PASSWORD
+                    </label>
+                    <br>
+                    <input size="46.7" type="password" id="password" name="Password">
+                    <br>
+                    <label id="idepassword"></label>
                     <br>
                     <label>
                         ROL
                     </label>
                     <br>
-                    <select style="width: 400px">
+                    <select style="width: 400px" name="Role">
                         <option>Select rol</option>
                         <option>Superadministrator</option>
                         <option>Administrator</option>
@@ -39,7 +55,7 @@
                     <br>
                     <br>
                     <div class="d-grid gap-2 col-12">
-                        <button class="btn btn-primary" onclick="validacion()" type="button">Create new user</button> 
+                        <input type="submit" class="btn btn-primary" value="Create new user" onclick="validacion()">
                     </div> 
                     <br>
                 </form>

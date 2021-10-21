@@ -4,8 +4,8 @@ let erroremailuse="The email entered must be a valid email"
 let erroremailuse2="The mail field must not be empty"
 
 function validacion(){
-    let Nom = document.getElementById("name1").value
-    document.getElementById("name1").value = Nom
+    let Nom = document.getElementById("firstname").value
+    document.getElementById("firstname").value = Nom
 
     let ema = document.getElementById("email1").value
     document.getElementById("email1").value = ema

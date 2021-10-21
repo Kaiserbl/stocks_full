@@ -8,66 +8,19 @@
         {{ components.sidebar() }}
         <div class="container p-0">
             {{ components.header('Products') }}
+            {{ components.flashMessage() }}
             <h2 class="font-40 py-4">Search Result ...</h2>
-            <div class="result-boxes d-flex justify-content-between">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Muscle car model 77</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">37 in stock</h6>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Muscle car model 78</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">37 in stock</h6>
-                    </div>
-                </div>
+            <div class="result-boxes d-flex justify-content-between flex-wrap">
+              {% for product in products %}
+                <a class="card mt-4" href="/product/detail">
+                  <div class="card-body">
+                    <h5 class="card-title">{{product["name"]}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{product["description"]}}</h6>
+                  </div>
+                </a>
+              {% endfor %} 
             </div>
-    
-            <div class="result-boxes pt-4 d-flex justify-content-between">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Muscle car model 90</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">37 in stock</h6>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Sport car model 1</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">37 in stock</h6>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="result-boxes pt-4 d-flex justify-content-between">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Sport car model 3</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">37 in stock</h6>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Pick up 2500</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">37 in stock</h6>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="result-boxes pt-4 d-flex justify-content-between">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Pick up monster</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">37 in stock</h6>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Mini van</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">37 in stock</h6>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

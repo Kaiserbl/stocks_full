@@ -10,12 +10,12 @@
         <div class="container p-0"> 
             {{ components.header('Providers') }}
             <div class="d-flex justify-content-center m-0">       
-                <form class="pt-140px">
+                <form action="/savedprovider" method="post" class="pt-140px">
                     <label>
                         NAME
                     </label>
                     <br>
-                    <input size="46.7" type="text" placeholder="Provider's name" id="name3" name="name3">
+                    <input size="46.7" type="text" placeholder="Provider's name" id="name3" name="NameProvider">
                     <br>
                     <label id="idname3"></label>
                     <br>
@@ -23,7 +23,7 @@
                         PRODUCT
                     </label>
                     <br>
-                    <input size="46.7" type="text" placeholder="Product Provided" id="producto" name="producto">
+                    <input size="46.7" type="text" placeholder="Product Provided" id="producto" name="Product">
                     <br>
                     <label id="idproducto"></label>
                     <br>
@@ -31,7 +31,7 @@
                         EMAIL
                     </label>
                     <br>
-                    <input size="46.7" type="email" placeholder="Provider's Email" id="email3" name="email3">
+                    <input size="46.7" type="email" placeholder="Provider's Email" id="email3" name="EmailProvider">
                     <br>
                     <label id="idemail3"></label>
                     <br>
@@ -39,13 +39,13 @@
                         CONTACT NUMBER
                     </label>
                     <br>
-                    <input size="46.7" type="text" placeholder="Provider's Number" id="numero" name="numero">
+                    <input size="46.7" type="text" placeholder="Provider's Number" id="numero" name="ContactNumber">
                     <br>
                     <label id="idnumero"></label>
                     <br>
                     <br>
                     <div class="d-grid gap-2 col-12">
-                        <button onclick="validacionpro()" class="btn btn-primary" type="button">Create new provider</button> 
+                        <input type="submit" class="btn btn-primary" value="Create new provider" onclick="validacionpro()">
                     </div>
                 </form>
             </div> 
