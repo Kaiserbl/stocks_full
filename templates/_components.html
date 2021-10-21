@@ -40,7 +40,7 @@
             {{ navItem('Mi perfil', 'fa-user-circle', 'my-profile') }}
             <!-- Sign out -->
             <li class="nav-item pb-2">
-                <a class="nav-link text-danger" href="#">
+                <a class="nav-link text-danger" href="{{ url_for('logout') }}">
                 <div class="d-flex align-items-center">
                     <i class="fa fa-sign-out fa-fw"></i>
                     <p class="px-3 m-0">Cerrar sesión</p>
