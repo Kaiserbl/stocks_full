@@ -10,12 +10,12 @@
         <div class="container p-0">
             {{ components.header('Products') }}
             <div class="d-flex justify-content-center m-0">
-                <form class="pt-140px">
+                <form action="/savedproduct" method="post" class="pt-140px">
                     <label>
                         NAME
                     </label>
                     <br>
-                    <input size="46.7" type="text" placeholder="Product name" id="name2" name="name2">
+                    <input size="46.7" type="text" placeholder="Product name" id="name2" name="Name">
                     <br>
                     <label id="idname2"></label> 
                     <br>
@@ -23,19 +23,28 @@
                         DESCRIPTION
                     </label>
                     <br>
-                    <input size="46.7" type="text" placeholder="Product description">
+                    <input size="46.7" type="text" placeholder="Product description" name="Description">
                     <br>
                     <br>
                     <label>
                         MINIMUM STOCK
                     </label>
                     <br>
-                    <input size="46.7" type="text" placeholder="Mininum stock" id="minimo" name="minimo">
+                    <input size="46.7" type="text" placeholder="Mininum stock" id="minimo" name="MininumStock">
+                    <br>
+                    <label id="idminimo"></label> 
+                    <br>
+
+                    <label>
+                        CURRENT STOCK
+                    </label>
+                    <br>
+                    <input size="46.7" type="text" placeholder="Mininum stock" id="minimo" name="CurrentStock">
                     <br>
                     <label id="idminimo"></label> 
                     <br>
                     <div class="d-grid gap-2 col-12">
-                        <button onclick="validacionmin()" class="btn btn-primary" type="button">Create new product</button> 
+                        <input type="submit" class="btn btn-primary" value="Create new product" onclick="validacionmin()">
                     </div>            
                     <br>
                 </form>
