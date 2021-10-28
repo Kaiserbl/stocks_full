@@ -13,7 +13,7 @@
             <h2 class="font-40 py-4">Search Result ...</h2>
             <div class="result-boxes d-flex justify-content-between flex-wrap">
                 {% for user in users %}
-                    <a class="card mt-4" href="/user/detail">
+                    <a class="card mt-4" href="/user/{{user.id}}/detail">
                         <div class="card-body">
                             <h5 class="card-title">{{user["first_name"]}} {{user["last_name"]}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{user["role"]}}</h6>
