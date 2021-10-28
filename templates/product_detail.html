@@ -9,7 +9,7 @@
     <div class="container p-0">
       {{ components.header('Products') }}
       <div class="d-flex justify-content-between pt-4">
-        <h3>Muscle Car Model 77</h3>
+        <h3>{{product["name"]}}</h3>
         <div>
           <button type="button" class="btn btn-primary boton">Edit Product</button>
           <button type="button" class="btn btn-primary boton" id="boton2" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Product</button>    
@@ -17,23 +17,24 @@
       </div>
       <div class="pt-4">
         <h6 class="font-14 labelpeque">DESCRIPTION</h6>
-        <p class="font-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut metus lacus. Nulla facilisi. Maecenas tellus sem, scelerisque ac eleifend eget, sollicitudin id lectus. Donec in quam a mi lacinia lobortis. In hac habitasse platea dictumst. Curabitur nec nisl at risus varius tincidunt id eu nulla. Aliquam elementum vitae est sit amet semper. Ut lectus arcu, sollicitudin eu mi a, tincidunt scelerisque ligula. Aenean ac quam eget lorem convallis finibus ut vel risus. Suspendisse ac lacinia mauris.</p>
+        <p class="font-12">{{product["description"]}}</p>
       </div>
       <div class="pt-4">
         <h6 class="font-14 labelpeque">MINIMUM STOCK</h6>
-        <P class="font-12">1</P>
+        <P class="font-12">{{product["minimum_stock"]}}</P>
       </div>
       <div class="pt-4">
         <h6 class="font-14 labelpeque">CURRENT STOCK</h6>
-        <P class="font-12">3</P>
+        <P class="font-12">{{product["current_stock"]}}</P>
       </div>
       <div class="pt-4">
         <h6 class="font-14 labelpeque">PROVIDERS</h6>
         <ul>
-          <li class="font-12">Santorini</li>
-          <li class="font-12">Pantoja</li>
-          <li class="font-12">Hermanos Hernandez</li>
-          <li class="font-12">Cali Motors</li>
+          {% for provider in providers %}
+            {% if provider.product == product.name %}
+              <li class="font-12">{{provider['name']}}</li>
+            {% endif %}
+          {% endfor %} 
         </ul>
       </div>
   </div>
@@ -50,7 +51,7 @@
           Are you sure you want to <br> delete this product?
         </div>
         <div class="modal-footer border-0 d-block"> 
-          <button type="button" class="btn btn-primary botonventana fs-5 fw-bolder"  >DELETE</button>
+          <a href="/product/{{product['id']}}/delete" class="btn btn-primary botonventana fs-5 fw-bolder">DELETE</a>
           <button type="button" class="btn btn-secondary botonventana fs-5 fw-normal" id="botoncancel" data-bs-dismiss="modal" >CANCEL</button>
         </div>
     </div>

@@ -13,7 +13,7 @@
             
             <div class="result-boxes d-flex justify-content-between flex-wrap">
               {% for provider in providers %}
-                <a class="card mt-4" href="/provider/detail">
+                <a class="card mt-4" href="/provider/{{provider.id}}/detail">
                   <div class="card-body">
                     <h5 class="card-title">{{provider["name"]}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{provider["product"]}}</h6>
