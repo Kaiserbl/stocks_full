@@ -28,8 +28,30 @@ def setRoutes(app):
         providers = cur.fetchall()
         #cur.execute("select * FROM providers WHERE id = ?", (id,))
         return render_template('product_edit.html', product=product, providers=providers)
-
     
+    @app.route('/updatedproduct/<int:id>', methods=["GET", "POST"])
+    def updateProduct(id):
+        message = ""  
+        if request.method == "POST":  
+            with sqlite3.connect("stocks.db") as con: 
+                try:  
+                    name = request.form["Name"]
+                    description = request.form["Description"]
+                    cminima = int(request.form["MininumStock"])
+                    current = int(request.form["CurrentStock"])
+                    cur = con.cursor()  
+                    cur.execute("UPDATE products SET name=?, description=?, minimum_stock=?, current_stock=? WHERE id = ?",(name, description, cminima, current, id))  
+                    con.commit()  
+                except:  
+                    con.rollback()   
+                    message = "We can not add the product" 
+                    flash(message) 
+                finally:  
+                    message = "Product successfully Added" 
+                    flash(message)
+                    return redirect("/products/search", code = 303)  
+                    con.close() 
+
     @app.route('/product/new')
     @login_required
     def createproduct():
@@ -55,7 +77,7 @@ def setRoutes(app):
                 finally:  
                     message = "Product successfully Added" 
                     flash(message)
-                    return redirect("products/search", code = 302)  
+                    return redirect("products/search", code = 303)  
                     con.close() 
     
     @app.route("/products/search")
@@ -132,7 +154,7 @@ def setRoutes(app):
                 finally:  
                     msg = "Provider successfully Added"  
                     flash(msg)
-                    return redirect("providers/search", code = 302)  
+                    return redirect("providers/search", code = 303)  
                     con.close()  
     
     @app.route("/providers/search")
@@ -171,8 +193,9 @@ def setRoutes(app):
             finally:  
                 message = "Provider Deleted Successfully"
                 flash(message)
-                return redirect('/')
-                con.close()  
+                return redirect('/products/search', code=303)
+                con.close()
+                
 
     # Routes for users
     @app.route("/users")
@@ -206,7 +229,7 @@ def setRoutes(app):
                 finally:  
                     msg = "User successfully Added"
                     flash(msg)
-                    return redirect("users/search", code = 302)
+                    return redirect("users/search", code = 303)
                     con.close()
 
     @app.route("/users/search")
