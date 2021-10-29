@@ -1,11 +1,11 @@
 <!-- Form field -->
-{% macro formField(id, label) -%}
+{% macro formField(id, label, value) -%}
     <div class="row mb-3">
         <p class="text-muted text-uppercase small fw-bold my-2"><small>
             {{ label }}
         </small></p>
         <div class="col-12 col-md-6">
-            <input type="text" class="form-control" id="{{ id }}">
+            <input type="text" class="form-control" id="{{ id }}" value="{{ value }}">
         </div>
     </div>
 {%- endmacro %}

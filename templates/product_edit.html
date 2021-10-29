@@ -15,49 +15,44 @@
                 <!-- Tab content -->
                 <form action="" method="post" class="py-3">
                     <div class="d-flex align-items-center">
-                        <h2 class="title flex-fill">{{ name }}</h2>
+                        <h2 class="title flex-fill" >{{ product.name }}</h2>
                         <button type="submit" class="btn btn-primary ">Save Changes</button>
                     </div>
                     <!-- PREGUNTAR A GREGORY COMO FUNCIONAN ESTOS CAMPOS, NECESITAMOS MODIFICARLOS COMO EN PRO
                     DUCT.HTML, PARA PODER ACTUALIZAR LOS CAMPOS -->
                     <!-- Name -->
-                    {{ components.formField('form-name', 'Name') }}
+                    {{ components.formField('form-name', 'Name',product.name) }}
                     <!-- Description -->
                     <div class="row mb-3">
                         <p class="text-muted text-uppercase small fw-bold my-2"><small>
                             Description
                         </small></p>
                         <div class="col-12">
-                            <textarea class="form-control" id="form-decription" rows="4"></textarea>
+                            <input class="form-control" id="form-decription" rows="4" value="{{ product.description }}"></input>
                         </div>
                     </div>
                     <!-- Minimun stock -->
-                    {{ components.formField('form-minimun-stock', 'Minimun stock') }}
+                    {{ components.formField('form-minimun-stock', 'Minimun stock',product.minimum_stock) }}
                     <!-- Current stock -->
-                    {{ components.formField('form-current-stock', 'Current stock') }}
+                    {{ components.formField('form-current-stock', 'Current stock',product.current_stock) }}
                     <!-- Providers -->
                     <div class="row mb-3">
                         <p class="text-muted text-uppercase small fw-bold my-2"><small>
                             Providers
                         </small></p>
                         <!-- Provider 1 -->
-                        <div class="row mb-3">
-                            <div class="col-12 col-md-6 mb-3 mb-md-0">
-                                <input type="text" class="form-control" id="form-provider1">
-                            </div>
-                            <div class="d-grid gap-2 col-12 col-md-4 align-items-center">
-                                <button class="btn btn-danger btn-sm" type="button">Delete Provider</button>
-                            </div>
-                        </div>
-                        <!-- Provider 2 -->
-                        <div class="row mb-3">
-                            <div class="col-12 col-md-6 mb-3 mb-md-0">
-                                <input type="text" class="form-control" id="form-provider2">
-                            </div>
-                            <div class="d-grid gap-2 col-12 col-md-4 align-items-center">
-                                <button class="btn btn-danger btn-sm" type="button">Delete Provider</button>
-                            </div>
-                        </div>
+                        {% for provider in providers %}
+                            {% if provider.product == product.name %}
+                                <div class="row mb-3">
+                                    <div class="col-12 col-md-6 mb-3 mb-md-0">
+                                        <input type="text" class="form-control" id="form-provider1" value="{{ provider.name }}">
+                                    </div>
+                                    <div class="d-grid gap-2 col-12 col-md-4 align-items-center">
+                                        <a href="/provider/{{provider['id']}}/delete" class="btn btn-danger btn-sm" type="button">Delete Provider</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %} 
                         <!-- Add provider -->
                         <div class="d-grid gap-2 col-12 col-md-6">
                             <button class="btn btn-primary btn-sm" type="button">Add Provider</button>

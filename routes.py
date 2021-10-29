@@ -15,10 +15,20 @@ def setRoutes(app):
         return render_template('index.html')
 
     # Routes for products
-    @app.route("/products")
+    @app.route("/product/<int:id>/edit")
     @login_required
-    def editProduct():
-        return render_template('product_edit.html', name='Muscle car model 7')
+    def editProduct(id):
+        con = sqlite3.connect("stocks.db")  
+        con.row_factory = sqlite3.Row  
+        cur = con.cursor()  
+        cur.execute("select * FROM products WHERE id = ?", (id,))  
+        product = cur.fetchone()
+        providersQuery = """SELECT * from providers"""
+        cur.execute(providersQuery) 
+        providers = cur.fetchall()
+        #cur.execute("select * FROM providers WHERE id = ?", (id,))
+        return render_template('product_edit.html', product=product, providers=providers)
+
     
     @app.route('/product/new')
     @login_required
@@ -72,39 +82,7 @@ def setRoutes(app):
         providers = cur.fetchall()
         return render_template('product_detail.html', product=product, providers=providers)
  
-    #@app.route('/product/<int:id>/edit')
-    #def editProduct(id):
-        con = sqlite3.connect("stocks.db")  
-        con.row_factory = sqlite3.Row  
-        cur = con.cursor()  
-        query = """SELECT * from products where id = ?"""
-        cur.execute(query, (id,))  
-        product = cur.fetchone()
-        providersQuery = """SELECT * from providers"""
-        cur.execute(providersQuery) 
-        providers = cur.fetchall()
-        return render_template('product_detail.html', product=product, providers=providers)
-    #message = ""  
-    #if request.method == "POST":  
-        with sqlite3.connect("stocks.db") as con: 
-            try:  
-                name = request.form["Name"]
-                description = request.form["Description"]
-                cminima = int(request.form["MininumStock"])
-                current = int(request.form["CurrentStock"])
-                cur = con.cursor()  
-                cur.execute("INSERT INTO products (name, description, minimum_stock, current_stock) VALUES (?,?,?,?)",(name, description, cminima, current))  
-                con.commit()  
-            except:  
-                con.rollback()   
-                message = "We can not Edit the product" 
-                flash(message) 
-            finally:  
-                message = "Product successfully Edited" 
-                flash(message)
-                return redirect('product_edit.html')  
-                con.close() 
-
+  
     @app.route('/product/<int:id>/delete')
     def deleteProduct(id):
         message = ""  
@@ -193,7 +171,7 @@ def setRoutes(app):
             finally:  
                 message = "Provider Deleted Successfully"
                 flash(message)
-                return render_template('search_providers.html')
+                return redirect('/')
                 con.close()  
 
     # Routes for users
