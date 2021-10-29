@@ -9,7 +9,8 @@
         <div class="container p-0">
             {{ components.header('Products') }}
             {{ components.flashMessage() }}
-            <h2 class="font-40 py-4">Search Result ...</h2>
+              <h2 class="font-40 py-4">Search Result ...</h2>
+              <button type="button" class="btn btn-primary btn-lg">Create New Product</button>
             <div class="result-boxes d-flex justify-content-between flex-wrap">
               {% for product in products %}
                 <a class="card mt-4" href="/product/{{product.id}}/detail">
@@ -20,7 +21,7 @@
                 </a>
               {% endfor %} 
             </div>
-            
+
         </div>
     </div>
 </div>
