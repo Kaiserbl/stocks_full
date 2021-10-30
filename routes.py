@@ -15,7 +15,7 @@ def setRoutes(app):
     @app.route("/product/<int:id>/edit")
     @login_required
     def editProduct(id):
-        con = sqlite3.connect("stocks.db")  
+        con = sqlite3.connect(os.path.join(app.root_path, 'stocks.db'))  
         con.row_factory = sqlite3.Row  
         cur = con.cursor()  
         cur.execute("select * FROM products WHERE id = ?", (id,))  
@@ -30,7 +30,7 @@ def setRoutes(app):
     def updateProduct(id):
         message = ""  
         if request.method == "POST":  
-            with sqlite3.connect("stocks.db") as con: 
+            with sqlite3.connect(os.path.join(app.root_path, 'stocks.db')) as con: 
                 try:  
                     name = request.form["Name"]
                     description = request.form["Description"]
@@ -58,7 +58,7 @@ def setRoutes(app):
     def savedProduct():
         message = ""  
         if request.method == "POST":  
-            with sqlite3.connect("stocks.db") as con: 
+            with sqlite3.connect(os.path.join(app.root_path, 'stocks.db')) as con: 
                 try:  
                     name = request.form["Name"]
                     description = request.form["Description"]
@@ -80,7 +80,7 @@ def setRoutes(app):
     @app.route("/products/search")
     @login_required
     def searchProduct():
-        con = sqlite3.connect("stocks.db")  
+        con = sqlite3.connect(os.path.join(app.root_path, 'stocks.db'))  
         con.row_factory = sqlite3.Row  
         cur = con.cursor()  
         cur.execute("select * from products")  
@@ -90,7 +90,7 @@ def setRoutes(app):
     @app.route('/product/<int:id>/detail')
     @login_required
     def productDetails(id):
-        con = sqlite3.connect("stocks.db")  
+        con = sqlite3.connect(os.path.join(app.root_path, 'stocks.db'))  
         con.row_factory = sqlite3.Row  
         cur = con.cursor()  
         query = """SELECT * from products where id = ?"""
@@ -105,7 +105,7 @@ def setRoutes(app):
     @app.route('/product/<int:id>/delete')
     def deleteProduct(id):
         message = ""  
-        with sqlite3.connect("stocks.db") as con: 
+        with sqlite3.connect(os.path.join(app.root_path, 'stocks.db')) as con: 
             try:
                 cur = con.cursor()  
                 deleteQuery = """DELETE FROM products WHERE id = ?"""
@@ -124,7 +124,7 @@ def setRoutes(app):
     @app.route("/provider/<int:id>/edit")
     @login_required
     def editProvider(id):
-        con = sqlite3.connect("stocks.db")  
+        con = sqlite3.connect(os.path.join(app.root_path, 'stocks.db'))  
         con.row_factory = sqlite3.Row  
         cur = con.cursor()  
         cur.execute("select * FROM providers WHERE id = ?", (id,))  
@@ -139,7 +139,7 @@ def setRoutes(app):
     def updateProvider(id):
         message = ""  
         if request.method == "POST":  
-            with sqlite3.connect("stocks.db") as con: 
+            with sqlite3.connect(os.path.join(app.root_path, 'stocks.db')) as con: 
                 try:  
                     name = request.form["NameProvider"]
                     email = request.form["EmailProvider"]
@@ -167,7 +167,7 @@ def setRoutes(app):
     def savedProvider():
         msg = ""  
         if request.method == "POST":  
-            with sqlite3.connect("stocks.db") as con: 
+            with sqlite3.connect(os.path.join(app.root_path, 'stocks.db')) as con: 
                 try:  
                     name = request.form["NameProvider"]
                     product = request.form["Product"]
@@ -189,7 +189,7 @@ def setRoutes(app):
     @app.route("/providers/search")
     @login_required
     def searchProviders():
-        con = sqlite3.connect("stocks.db")  
+        con = sqlite3.connect(os.path.join(app.root_path, 'stocks.db'))  
         con.row_factory = sqlite3.Row  
         cur = con.cursor()  
         cur.execute("select * from providers")  
@@ -199,7 +199,7 @@ def setRoutes(app):
     @app.route('/provider/<int:id>/detail')
     @login_required
     def providerDetails(id):
-        con = sqlite3.connect("stocks.db")  
+        con = sqlite3.connect(os.path.join(app.root_path, 'stocks.db'))  
         con.row_factory = sqlite3.Row  
         cur = con.cursor()  
         query = """SELECT * from providers where id = ?"""
@@ -213,7 +213,7 @@ def setRoutes(app):
     @app.route('/provider/<int:id>/delete')
     def deleteProvider(id):
         message = ""  
-        with sqlite3.connect("stocks.db") as con: 
+        with sqlite3.connect(os.path.join(app.root_path, 'stocks.db')) as con: 
             try:
                 cur = con.cursor()  
                 deleteQuery = """DELETE FROM providers WHERE id = ?"""
@@ -232,7 +232,7 @@ def setRoutes(app):
     @app.route("/user/<int:id>/edit")
     @login_required
     def editUser(id):
-        con = sqlite3.connect("stocks.db")  
+        con = sqlite3.connect(os.path.join(app.root_path, 'stocks.db'))  
         con.row_factory = sqlite3.Row  
         cur = con.cursor()  
         cur.execute("select * FROM users WHERE id = ?", (id,))  
@@ -243,7 +243,7 @@ def setRoutes(app):
     def updateUser(id):
         message = ""  
         if request.method == "POST":  
-            with sqlite3.connect("stocks.db") as con: 
+            with sqlite3.connect(os.path.join(app.root_path, 'stocks.db')) as con: 
                 try:  
                     first_name = request.form["FirstName"]
                     last_name = request.form["LastName"]
@@ -270,7 +270,7 @@ def setRoutes(app):
     def savedUser():
         msg = ""  
         if request.method == "POST":  
-            with sqlite3.connect("stocks.db") as con: 
+            with sqlite3.connect(os.path.join(app.root_path, 'stocks.db')) as con: 
                 try:  
                     firstName = request.form["FirstName"]
                     lastName = request.form["LastName"]
@@ -293,7 +293,7 @@ def setRoutes(app):
     @app.route("/users/search")
     @login_required
     def searchUsers():
-        con = sqlite3.connect("stocks.db")  
+        con = sqlite3.connect(os.path.join(app.root_path, 'stocks.db'))  
         con.row_factory = sqlite3.Row  
         cur = con.cursor()  
         cur.execute("select * from users")  
@@ -303,7 +303,7 @@ def setRoutes(app):
     @app.route('/user/<int:id>/detail')
     @login_required
     def userDetails(id):
-        con = sqlite3.connect("stocks.db")  
+        con = sqlite3.connect(os.path.join(app.root_path, 'stocks.db'))  
         con.row_factory = sqlite3.Row  
         cur = con.cursor()  
         query = """SELECT * from users where id = ?"""
@@ -314,7 +314,7 @@ def setRoutes(app):
     @app.route('/user/<int:id>/delete')
     def deleteUser(id):
         message = ""  
-        with sqlite3.connect("stocks.db") as con: 
+        with sqlite3.connect(os.path.join(app.root_path, 'stocks.db')) as con: 
             try:
                 cur = con.cursor()  
                 deleteQuery = """DELETE FROM users WHERE id = ?"""
