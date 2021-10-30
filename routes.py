@@ -44,10 +44,10 @@ def setRoutes(app):
                     con.commit()  
                 except:  
                     con.rollback()   
-                    message = "We can not add the product" 
+                    message = "We can not update the product" 
                     flash(message) 
                 finally:  
-                    message = "Product successfully Added" 
+                    message = " Product Updated successfully" 
                     flash(message)
                     return redirect("/products/search", code = 303)  
                     con.close() 
@@ -155,7 +155,7 @@ def setRoutes(app):
                     message = "We can not update the provider" 
                     flash(message) 
                 finally:  
-                    message = "Provider updated successfully " 
+                    message = "Provider Updated successfully " 
                     flash(message)
                     return redirect("/providers/search", code = 303)  
                     con.close() 
@@ -232,11 +232,37 @@ def setRoutes(app):
                 con.close()
                 
 
-    # Routes for users
-    @app.route("/users")
+    @app.route("/user/<int:id>/edit")
     @login_required
-    def editUser():
-        return render_template('user_edit.html', name='Sharon Hernandez')
+    def editUser(id):
+        con = sqlite3.connect("stocks.db")  
+        con.row_factory = sqlite3.Row  
+        cur = con.cursor()  
+        cur.execute("select * FROM users WHERE id = ?", (id,))  
+        user = cur.fetchone()
+        return render_template('user_edit.html', user=user)
+    
+    @app.route('/updateduser/<int:id>', methods=["GET", "POST"])
+    def updateUser(id):
+        message = ""  
+        if request.method == "POST":  
+            with sqlite3.connect("stocks.db") as con: 
+                try:  
+                    first_name = request.form["FirstName"]
+                    last_name = request.form["LastName"]
+                    email = request.form["UserEmail"]
+                    cur = con.cursor()  
+                    cur.execute("UPDATE users SET first_name=?, last_name=?, email=? WHERE id = ?", (first_name, last_name, email, id))  
+                    con.commit()  
+                except:  
+                    con.rollback()   
+                    message = "We can not update the user" 
+                    flash(message) 
+                finally:  
+                    message = "User Updated successfully" 
+                    flash(message)
+                    return redirect("/users/search", code = 303)  
+                    con.close() 
 
     @app.route('/user/new')
     @login_required

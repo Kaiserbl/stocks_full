@@ -11,21 +11,21 @@
       <div class="d-flex justify-content-between pt-4">
           <h3>{{user.first_name}} {{user.last_name}}</h3>
           <div>
-            <button type="button" class="btn btn-primary boton">Edit User</button>
+            <a type="button" class="btn btn-primary boton" href="/user/{{user['id']}}/edit">Edit User</a>
             <button type="button" class="btn btn-primary boton" id="boton2" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete User</button>    
           </div>
         </div>
         <div class="pt-4 mt-4">
           <h6 class="font-14 labelpeque">NAME</h6>
-          <P class="font-12 usercard px-3 py-2">{{user.first_name}} {{user.last_name}}</P>
+          <P class="font-16 usercard px-3 py-2">{{user.first_name}} {{user.last_name}}</P>
         </div>
         <div class="pt-4 mt-4">
           <h6 class="font-14 labelpeque">EMAIL</h6>
-          <P class="font-12 usercard px-3 py-2">{{user.email}}</P>
+          <P class="font-16 usercard px-3 py-2">{{user.email}}</P>
         </div>
         <div class="pt-4 mt-4">
           <h6 class="font-14 labelpeque">ROLE</h6>
-          <P class="font-12 usercard px-3 py-2">{{user.role}}</P>
+          <P class="font-16 usercard px-3 py-2">{{user.role}}</P>
         </div>
   </div>
   </div>
