@@ -368,7 +368,7 @@ def setRoutes(app):
                 flash(message) 
             finally:  
                 # con.close() 
-                return render_template('dashboard.html', productsCount = productsRow[0], providersCount = providersRow[0])
+                return render_template('dashboard.html', productsCount = 5, providersCount = 4)
 
     @app.route('/logout')
     def logout():
