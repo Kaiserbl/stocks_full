@@ -1,3 +1,4 @@
+import os
 import sqlite3
 
 from flask import flash, redirect, render_template, request, url_for
@@ -353,7 +354,7 @@ def setRoutes(app):
     @app.route("/index")
     @login_required
     def dashboard():
-        with sqlite3.connect("./stocks.db") as con: 
+        with sqlite3.connect(os.path.join(app.root_path, 'stocks.db')) as con: 
             try:
                 cur = con.cursor()  
                 productsQuery = """SELECT COUNT(*) FROM products"""
