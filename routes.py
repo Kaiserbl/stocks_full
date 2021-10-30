@@ -123,13 +123,6 @@ def setRoutes(app):
                 return render_template('search_products.html')
                 con.close() 
 
-    # Routes for providers
-    @app.route("/providers")
-    @login_required
-    def editProvider():
-        return render_template('provider_edit.html', name='Santorini')
-
-
     
     @app.route("/provider/<int:id>/edit")
     @login_required
@@ -152,20 +145,19 @@ def setRoutes(app):
             with sqlite3.connect("stocks.db") as con: 
                 try:  
                     name = request.form["NameProvider"]
-                    product = request.form["Product"]
                     email = request.form["EmailProvider"]
                     contactNumber = request.form["ContactNumber"]
                     cur = con.cursor()  
-                    cur.execute ("UPDATE providers SET name=?, product=?, email=?, contact_number=? WHERE id = ?",(name, product, email, contactNumber, id))  
+                    cur.execute ("UPDATE providers SET name=?, email=?, contact_number=? WHERE id=?", (name, email, contactNumber, id))  
                     con.commit()  
                 except:  
                     con.rollback()   
                     message = "We can not update the provider" 
                     flash(message) 
                 finally:  
-                    message = "Provider successfully uptdated" 
+                    message = "Provider updated successfully " 
                     flash(message)
-                    return redirect("/provider/search", code = 303)  
+                    return redirect("/providers/search", code = 303)  
                     con.close() 
                     
     @app.route('/provider/new')
@@ -221,29 +213,6 @@ def setRoutes(app):
         products = cur.fetchall()
         return render_template('provider_detail.html', provider=provider, products=products)
     
-    @app.route('/updatedprovider/<int:id>', methods=["GET", "POST"])
-    def updateProvider(id):
-        message = ""  
-        if request.method == "POST":  
-            with sqlite3.connect("stocks.db") as con: 
-                try:  
-                    name = request.form["Name"]
-                    product = request.form["Product"]
-                    email = int(request.form["Email"])
-                    contact_number = int(request.form["Contacnumber"])
-                    cur = con.cursor()  
-                    cur.execute("UPDATE products SET name=?, product=?, email=?, contact_number=? WHERE id = ?",(name, product, email, contact_number, id))  
-                    con.commit()  
-                except:  
-                    con.rollback()   
-                    message = "We can not add the product" 
-                    flash(message) 
-                finally:  
-                    message = "Product successfully Added" 
-                    flash(message)
-                    return redirect("providers/search", code = 303)  
-                    con.close() 
-
     @app.route('/provider/<int:id>/delete')
     def deleteProvider(id):
         message = ""  
