@@ -1,18 +1,14 @@
-from flask import render_template, request, redirect, url_for, flash
-from flask_login import current_user, login_user, logout_user, login_required
+import sqlite3
+
+from flask import flash, redirect, render_template, request, url_for
+from flask_login import current_user, login_required, login_user, logout_user
 from werkzeug.urls import url_parse
 
 from auth.forms import LoginForm
 from auth.models import get_user
 
-import sqlite3
 
 def setRoutes(app):
-    @app.route("/")
-    @app.route("/index")
-    @login_required
-    def index():
-        return render_template('index.html')
 
     # Routes for products
     @app.route("/product/<int:id>/edit")
@@ -352,10 +348,28 @@ def setRoutes(app):
                 return redirect(next_page)
         return render_template('login.html', form=form)
     
+    @app.route("/")
     @app.route('/dashboard')
+    @app.route("/index")
     @login_required
     def dashboard():
-        return render_template('dashboard.html')
+        with sqlite3.connect("stocks.db") as con: 
+            try:
+                cur = con.cursor()  
+                productsQuery = """SELECT COUNT(*) FROM products"""
+                cur.execute(productsQuery)
+                productsCount = cur.fetchone()
+                providersQuery = """SELECT COUNT(*) FROM providers"""
+                cur.execute(providersQuery)
+                providersCount = cur.fetchone()
+            except Exception as e:  
+                print(e, flush=True)  
+                con.rollback()   
+                message = "Some error has occur" 
+                flash(message) 
+            finally:  
+                # con.close() 
+                return render_template('dashboard.html', productsCount = productsCount[0], providersCount = providersCount[0])
 
     @app.route('/logout')
     def logout():

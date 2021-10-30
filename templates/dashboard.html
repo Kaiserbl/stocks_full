@@ -1,8 +1,4 @@
-{% extends "_base.html" %}
-
-{% import '_components.html' as components %}
-
-{% block content %}
+{% extends "_base.html" %} {% import '_components.html' as components %} {% block content %}
 <div class="container-fluid">
     <div class="row vh-100">
         {{ components.sidebar() }}
@@ -10,14 +6,16 @@
             {{ components.header('Resume') }}
             <div class="d-flex">
                 <form>
-                     <div id="botones" class="container">
-                        <button id="Products" class="btn btn-lg" style="background-color: white;">
-                            <p style="color: gray;">Products</p> <h1>154</h1>
-                        </button>
-                        <button id="Providers" class="btn btn-lg" style="background-color: white;">
-                            <p style="color: gray;">Providers</p> <h1>34</h1>
-                        </button>
-                     </div>       
+                    <div id="botones" class="container">
+                        <a id="Products" class="btn btn-lg" style="background-color: white;" href="{{ url_for('searchProduct') }}">
+                            <p style="color: gray;">Products</p>
+                            <h1>{{productsCount}}</h1>
+                        </a>
+                        <a id="Providers" class="btn btn-lg" style="background-color: white;" href="{{ url_for('searchProviders') }}">
+                            <p style="color: gray;">Providers</p>
+                            <h1>{{providersCount}}</h1>
+                        </a>
+                    </div>
                 </form>
             </div>
         </div>
