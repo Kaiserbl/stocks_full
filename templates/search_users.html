@@ -10,7 +10,10 @@
         <div class="container p-0">
             {{ components.header('Users Management') }}
             {{ components.flashMessage() }}
-            <h2 class="font-40 py-4">Search Result ...</h2>
+            <div class="d-flex justify-content-between mt-4">
+                <h2 class="font-40">Search Result ...</h2>
+                <a href="/user/new" type="button" class="btn btn-primary btn-lg ">Create New User</a>
+            </div>
             <div class="result-boxes d-flex justify-content-between flex-wrap">
                 {% for user in users %}
                     <a class="card mt-4" href="/user/{{user.id}}/detail">

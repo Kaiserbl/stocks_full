@@ -15,11 +15,43 @@ def setRoutes(app):
         return render_template('index.html')
 
     # Routes for products
-    @app.route("/products")
+    @app.route("/product/<int:id>/edit")
     @login_required
-    def editProduct():
-        return render_template('product_edit.html', name='Muscle car model 7')
+    def editProduct(id):
+        con = sqlite3.connect("stocks.db")  
+        con.row_factory = sqlite3.Row  
+        cur = con.cursor()  
+        cur.execute("select * FROM products WHERE id = ?", (id,))  
+        product = cur.fetchone()
+        providersQuery = """SELECT * from providers"""
+        cur.execute(providersQuery) 
+        providers = cur.fetchall()
+        #cur.execute("select * FROM providers WHERE id = ?", (id,))
+        return render_template('product_edit.html', product=product, providers=providers)
     
+    @app.route('/updatedproduct/<int:id>', methods=["GET", "POST"])
+    def updateProduct(id):
+        message = ""  
+        if request.method == "POST":  
+            with sqlite3.connect("stocks.db") as con: 
+                try:  
+                    name = request.form["Name"]
+                    description = request.form["Description"]
+                    cminima = int(request.form["MininumStock"])
+                    current = int(request.form["CurrentStock"])
+                    cur = con.cursor()  
+                    cur.execute("UPDATE products SET name=?, description=?, minimum_stock=?, current_stock=? WHERE id = ?",(name, description, cminima, current, id))  
+                    con.commit()  
+                except:  
+                    con.rollback()   
+                    message = "We can not update the product" 
+                    flash(message) 
+                finally:  
+                    message = " Product Updated successfully" 
+                    flash(message)
+                    return redirect("/products/search", code = 303)  
+                    con.close() 
+
     @app.route('/product/new')
     @login_required
     def createproduct():
@@ -45,7 +77,7 @@ def setRoutes(app):
                 finally:  
                     message = "Product successfully Added" 
                     flash(message)
-                    return redirect("products/search", code = 302)  
+                    return redirect("products/search", code = 303)  
                     con.close() 
     
     @app.route("/products/search")
@@ -71,7 +103,8 @@ def setRoutes(app):
         cur.execute(providersQuery) 
         providers = cur.fetchall()
         return render_template('product_detail.html', product=product, providers=providers)
-
+ 
+  
     @app.route('/product/<int:id>/delete')
     def deleteProduct(id):
         message = ""  
@@ -90,16 +123,48 @@ def setRoutes(app):
                 return render_template('search_products.html')
                 con.close() 
 
-    # Routes for providers
-    @app.route("/providers")
+    
+    @app.route("/provider/<int:id>/edit")
     @login_required
-    def editProvider():
-        return render_template('provider_edit.html', name='Santorini')
-
+    def editProvider(id):
+        con = sqlite3.connect("stocks.db")  
+        con.row_factory = sqlite3.Row  
+        cur = con.cursor()  
+        cur.execute("select * FROM providers WHERE id = ?", (id,))  
+        provider = cur.fetchone()
+        productsQuery = """SELECT * from products"""
+        cur.execute(productsQuery) 
+        products = cur.fetchall()
+        #cur.execute("select * FROM providers WHERE id = ?", (id,))
+        return render_template('provider_edit.html', provider=provider, products=products )
+    
+    @app.route('/updatedprovider/<int:id>', methods=["GET", "POST"])
+    def updateProvider(id):
+        message = ""  
+        if request.method == "POST":  
+            with sqlite3.connect("stocks.db") as con: 
+                try:  
+                    name = request.form["NameProvider"]
+                    email = request.form["EmailProvider"]
+                    contactNumber = request.form["ContactNumber"]
+                    cur = con.cursor()  
+                    cur.execute ("UPDATE providers SET name=?, email=?, contact_number=? WHERE id=?", (name, email, contactNumber, id))  
+                    con.commit()  
+                except:  
+                    con.rollback()   
+                    message = "We can not update the provider" 
+                    flash(message) 
+                finally:  
+                    message = "Provider Updated successfully " 
+                    flash(message)
+                    return redirect("/providers/search", code = 303)  
+                    con.close() 
+                    
     @app.route('/provider/new')
     @login_required
     def createprovider():
         return render_template('provider.html')
+
 
     @app.route('/savedprovider', methods=["GET", "POST"])
     def savedProvider():
@@ -121,7 +186,7 @@ def setRoutes(app):
                 finally:  
                     msg = "Provider successfully Added"  
                     flash(msg)
-                    return redirect("providers/search", code = 302)  
+                    return redirect("/providers/search", code = 303)  
                     con.close()  
     
     @app.route("/providers/search")
@@ -143,8 +208,11 @@ def setRoutes(app):
         query = """SELECT * from providers where id = ?"""
         cur.execute(query, (id,))  
         provider = cur.fetchone()
-        return render_template('provider_detail.html', provider=provider)
-
+        productsQuery = """SELECT * from products"""
+        cur.execute(productsQuery) 
+        products = cur.fetchall()
+        return render_template('provider_detail.html', provider=provider, products=products)
+    
     @app.route('/provider/<int:id>/delete')
     def deleteProvider(id):
         message = ""  
@@ -160,14 +228,41 @@ def setRoutes(app):
             finally:  
                 message = "Provider Deleted Successfully"
                 flash(message)
-                return render_template('search_providers.html')
-                con.close()  
+                return redirect('/products/search', code=303)
+                con.close()
+                
 
-    # Routes for users
-    @app.route("/users")
+    @app.route("/user/<int:id>/edit")
     @login_required
-    def editUser():
-        return render_template('user_edit.html', name='Sharon Hernandez')
+    def editUser(id):
+        con = sqlite3.connect("stocks.db")  
+        con.row_factory = sqlite3.Row  
+        cur = con.cursor()  
+        cur.execute("select * FROM users WHERE id = ?", (id,))  
+        user = cur.fetchone()
+        return render_template('user_edit.html', user=user)
+    
+    @app.route('/updateduser/<int:id>', methods=["GET", "POST"])
+    def updateUser(id):
+        message = ""  
+        if request.method == "POST":  
+            with sqlite3.connect("stocks.db") as con: 
+                try:  
+                    first_name = request.form["FirstName"]
+                    last_name = request.form["LastName"]
+                    email = request.form["UserEmail"]
+                    cur = con.cursor()  
+                    cur.execute("UPDATE users SET first_name=?, last_name=?, email=? WHERE id = ?", (first_name, last_name, email, id))  
+                    con.commit()  
+                except:  
+                    con.rollback()   
+                    message = "We can not update the user" 
+                    flash(message) 
+                finally:  
+                    message = "User Updated successfully" 
+                    flash(message)
+                    return redirect("/users/search", code = 303)  
+                    con.close() 
 
     @app.route('/user/new')
     @login_required
@@ -195,7 +290,7 @@ def setRoutes(app):
                 finally:  
                     msg = "User successfully Added"
                     flash(msg)
-                    return redirect("users/search", code = 302)
+                    return redirect("users/search", code = 303)
                     con.close()
 
     @app.route("/users/search")

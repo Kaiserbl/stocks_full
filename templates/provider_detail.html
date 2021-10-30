@@ -11,14 +11,18 @@
       <div class="d-flex justify-content-between pt-4">
         <h3>{{provider.name}}</h3>
         <div>
-          <button type="button" class="btn btn-primary boton">Edit Provider</button>
+          <a type="button" class="btn btn-primary boton" href="/provider/{{provider['id']}}/edit">Edit Provider</a>
           <button type="button" class="btn btn-primary boton" id="boton2" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Provider</button>    
         </div>
       </div>
       <div class="pt-4 mt-4">
         <h6 class="font-14 labelpeque">Products</h6>
         <ul>
-          <li class="font-12">{{provider.product}}</li>
+          {% for product in products %}
+            {% if product.name == provider.product %}
+              <li class="font-12">{{product['name']}}</li>
+            {% endif %}
+          {% endfor %} 
         </ul>
       </div>
       <div class="pt-4 mt-4">
