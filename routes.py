@@ -358,18 +358,17 @@ def setRoutes(app):
                 cur = con.cursor()  
                 productsQuery = """SELECT COUNT(*) FROM products"""
                 cur.execute(productsQuery)
-                productsCount = cur.fetchone()
+                productsRow = cur.fetchone()
                 providersQuery = """SELECT COUNT(*) FROM providers"""
                 cur.execute(providersQuery)
-                providersCount = cur.fetchone()
+                providersRow = cur.fetchone()
             except Exception as e:  
-                print(e, flush=True)  
                 con.rollback()   
                 message = "Some error has occur" 
                 flash(message) 
             finally:  
                 # con.close() 
-                return render_template('dashboard.html', productsCount = productsCount[0], providersCount = providersCount[0])
+                return render_template('dashboard.html', productsCount = productsRow[0], providersCount = providersRow[0])
 
     @app.route('/logout')
     def logout():
