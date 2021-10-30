@@ -2,7 +2,7 @@
 
 Aplicación de manejo de inventario usando python/flask.
 
-[Online page](http://pbrochero.pythonanywhere.com/)x
+[Online page](http://pbrochero.pythonanywhere.com/)
 
 ## Instalación
 
