@@ -353,7 +353,7 @@ def setRoutes(app):
     @app.route("/index")
     @login_required
     def dashboard():
-        with sqlite3.connect("stocks.db") as con: 
+        with sqlite3.connect("./stocks.db") as con: 
             try:
                 cur = con.cursor()  
                 productsQuery = """SELECT COUNT(*) FROM products"""
@@ -363,12 +363,13 @@ def setRoutes(app):
                 cur.execute(providersQuery)
                 providersRow = cur.fetchone()
             except Exception as e:  
+                print(e, flush=True)  
                 con.rollback()   
                 message = "Some error has occur" 
                 flash(message) 
             finally:  
                 # con.close() 
-                return render_template('dashboard.html', productsCount = 5, providersCount = 4)
+                return render_template('dashboard.html', productsCount = productsRow[0], providersCount = providersRow[0])
 
     @app.route('/logout')
     def logout():
