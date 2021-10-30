@@ -2,6 +2,8 @@
 
 Aplicación de manejo de inventario usando python/flask.
 
+[Online page](http://pbrochero.pythonanywhere.com/)x
+
 ## Instalación
 
 Usar pip para instalar los paquetes requeridos con el siguiente comando.
@@ -14,7 +16,7 @@ pip install -r requirements.txt
 
 Como material de apoyo tendremos este curso en español bastante detallado y cercano al producto final deseado.
 
-[Tutorial flask](https://j2logo.com/tutorial-flask-espanol/)
+[Tutorial flask](https://j2logo.com/tutorial-flask-espanol/)x
 
 ## Tareas - Sprint 4
 
